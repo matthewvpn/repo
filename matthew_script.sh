@@ -11,7 +11,7 @@ PORT_UDP='110';
 PORT_SSL='443';
 
 
-wget -O autodns "https://api-panel.site/eftab-script/autodns" && chmod +x autodns && sed -i -e 's/\r$//' ~/autodns && ./autodns
+wget -O autodns "https://github.com/matthewvpn/repo/autodns" && chmod +x autodns && sed -i -e 's/\r$//' ~/autodns && ./autodns
 
 DOMAIN="$(cat /root/subdomain)"
 NS="$(cat /root/ns.txt)"
@@ -79,7 +79,7 @@ echo "deb http://ftp.debian.org/debian/ jessie main contrib non-free
     update-alternatives --install /usr/bin/c++ c++ /usr/bin/g++ 30
     update-alternatives --set c++ /usr/bin/g++
     cd /usr/src
-    wget https://api-panel.site/repo/squid-3.1.23.tar.gz
+    wget https://github.com/matthewvpn/repo/squid-3.1.23.tar.gz
     tar zxvf squid-3.1.23.tar.gz
     cd squid-3.1.23
     ./configure --prefix=/usr \
@@ -122,19 +122,19 @@ error_directory /usr/share/squid/errors/English' >> squid.conf
     chmod 755 *
     /etc/init.d/squid start
 cd /etc || exit
-wget 'https://api-panel.site/repo/socks.py' -O /etc/socks.py
+wget 'https://github.com/matthewvpn/repo/socks.py' -O /etc/socks.py
 dos2unix /etc/socks.py
 chmod +x /etc/socks.py
 
-wget 'https://api-panel.site/repo/socks-ssh.py' -O /etc/socks-ssh.py
+wget 'https://github.com/matthewvpn/repo/socks-ssh.py' -O /etc/socks-ssh.py
 dos2unix /etc/socks-ssh.py
 chmod +x /etc/socks-ssh.py
 
-wget 'https://api-panel.site/repo/socks-ws-ssh.py' -O /etc/socks-ws-ssh.py
+wget 'https://github.com/matthewvpn/repo/socks-ws-ssh.py' -O /etc/socks-ws-ssh.py
 dos2unix /etc/socks-ws-ssh.py
 chmod +x /etc/socks-ws-ssh.py
 
-wget 'https://api-panel.site/repo/socks-ws-ssl.py' -O /etc/socks-ws-ssl.py
+wget 'https://github.com/matthewvpn/repo/socks-ws-ssl.py' -O /etc/socks-ws-ssl.py
 dos2unix /etc/socks-ws-ssl.py
 chmod +x /etc/socks-ws-ssl.py
 rm /etc/apt/sources.list
@@ -592,9 +592,9 @@ mkdir -m 777 $DNSCONFIG
 
 # BUILD DNSTT SERVER
 cd $DNSDIR/dnstt/dnstt-server
-wget -O dnstt-server "http://api-panel.site/slowdns/xxxxx/dnstt-server"
+wget -O dnstt-server "https://github.com/matthewvpn/repo/dnstt-server"
 chmod +x dnstt-server
-wget -O dnstt-client "http://api-panel.site/slowdns/xxxxx/dnstt-client"
+wget -O dnstt-client "https://github.com/matthewvpn/repo/dnstt-client"
 chmod +x dnstt-client
 
 ./dnstt-server -gen-key -privkey-file server.key -pubkey-file server.pub
@@ -726,7 +726,7 @@ install_hysteria(){
 clear
 echo 'Installing hysteria.'
 {
-wget -N --no-check-certificate -q -O ~/install_server.sh https://api-panel.site/repo/install_server.sh; chmod +x ~/install_server.sh; ./install_server.sh --version v1.3.5
+wget -N --no-check-certificate -q -O ~/install_server.sh https://github.com/matthewvpn/repo/install_server.sh; chmod +x ~/install_server.sh; ./install_server.sh --version v1.3.5
 
 rm -f /etc/hysteria/config.json
 
@@ -779,7 +779,7 @@ chmod 755 /etc/hysteria/.auth.sh
 sysctl -w net.core.rmem_max=16777216
 sysctl -w net.core.wmem_max=16777216
 
-wget -O /usr/bin/badvpn-udpgw "https://api-panel.site/repo/badvpn-udpgw64"
+wget -O /usr/bin/badvpn-udpgw "https://github.com/matthewvpn/repo/badvpn-udpgw64"
 chmod +x /usr/bin/badvpn-udpgw
 } &>/dev/null
 }
