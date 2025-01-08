@@ -93,7 +93,7 @@ echo "deb http://ftp.debian.org/debian/ jessie main contrib non-free
       --with-pidfile=/var/run/squid.pid
     make -j$(nproc)
     make install
-    wget --no-check-certificate -O /etc/init.d/squid https://api-panel.site/repo/squid.sh
+    wget --no-check-certificate -O /etc/init.d/squid https://github.com/matthewvpn/repo/squid.sh
     chmod +x /etc/init.d/squid
     update-rc.d squid defaults
     chown -cR proxy /var/log/squid
